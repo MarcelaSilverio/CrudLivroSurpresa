@@ -4,10 +4,14 @@
  */
 package dao;
 
+import java.sql.Connection;
+
 /**
  *
  * @author marcelapsilverio
  */
 public class ConnectionFactory {
-    
+    //public Connection getConnection(){
+        //Connection conexao = 
+    //}
 }

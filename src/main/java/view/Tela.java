@@ -37,8 +37,8 @@ public class Tela extends javax.swing.JFrame {
     public Tela() throws ParseException {
         initComponents();
         setLocationRelativeTo(null);
-        tbCliente.setModel(new ClienteTableModel (new ClienteDAO().listarTodos()));
-        tbLivro.setModel(new LivroTableModel (new LivroDAO().listarTodos()));  
+        //tbCliente.setModel(new ClienteTableModel (new ClienteDAO().listarTodos()));
+        //tbLivro.setModel(new LivroTableModel (new LivroDAO().listarTodos()));  
     }
 
     /** This method is called from within the constructor to
@@ -382,7 +382,7 @@ public class Tela extends javax.swing.JFrame {
         tfClienteCep.setText("");
         tfClienteCep.setFont(new java.awt.Font("Georgia", 0, 15)); // NOI18N
 
-        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/50+ Free Dark Academia Wallpaper For iPhone Options _.jpeg"))); // NOI18N
+        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/biblioteca.jpeg"))); // NOI18N
         jLabel16.setText("jLabel16");
 
         javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
@@ -675,15 +675,15 @@ public class Tela extends javax.swing.JFrame {
         
         else if (jComboBox1.getSelectedIndex() == 1){
             
-            cliente.setCpf(tfClienteCpf.getText());
-            cliente.setNome(tfClienteNome.getText());
-            cliente.setCep(tfClienteCep.getText());
+            //cliente.setCpf(tfClienteCpf.getText());
+            //cliente.setNome(tfClienteNome.getText());
+            //cliente.setCep(tfClienteCep.getText());
             //cliente.setNumero(tfCliente.getText());
-            cliente.setRua(tfClienteCep.getText());
-            cliente.setCidade(tfClienteCep.getText());
-            cliente.setUf(tfClienteCep.getText());
-            cliente.setEmail(tfClienteCep.getText());
-            cliente.setTelefone(tfClienteCep.getText());            
+            //cliente.setRua(tfClienteCep.getText());
+            //cliente.setCidade(tfClienteCep.getText());;;;;
+            //cliente.setUf(tfClienteCep.getText());
+            //cliente.setEmail(tfClienteCep.getText());
+            //cliente.setTelefone(tfClienteCep.getText());            
             
         }
         
@@ -703,41 +703,6 @@ public class Tela extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Tela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Tela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Tela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Tela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    new Tela().setVisible(true);
-                } catch (ParseException ex) {
-                    Logger.getLogger(Tela.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btExcluir;
