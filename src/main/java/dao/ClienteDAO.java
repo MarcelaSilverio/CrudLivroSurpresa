@@ -56,6 +56,8 @@ public class ClienteDAO {
                 + " rua = ?, cidade = ?, uf = ?, email = ?, telefone = ? WHERE"
                 + "cpf = ?";
         try{
+            stmt = conexao.prepareStatement(sql);
+            
             stmt.setString(1, cliente.getCpf());
             stmt.setString(2, cliente.getNome());
             stmt.setString(3, cliente.getCep());
@@ -79,6 +81,9 @@ public class ClienteDAO {
     public void excluir(String cpf){
         String sql = "DELETE FROM cliente WHERE cpf = " + cpf;
         try{
+            st = conexao.createStatement();
+            st.execute(sql);
+            st.close();
             
         }catch(Exception erro){
             throw new RuntimeException("Erro 4: " + erro + "\n");
@@ -105,5 +110,7 @@ public class ClienteDAO {
         }catch(Exception erro){
             throw new RuntimeException("Erro 5: " + erro + "\n");
         }
-    }
+        
+        return lista;
+    } 
 }
