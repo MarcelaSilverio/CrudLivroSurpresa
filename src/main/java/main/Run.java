@@ -7,6 +7,7 @@ package main;
 import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import view.Dashboard;
 import view.Tela;
 
 /**
@@ -15,13 +16,7 @@ import view.Tela;
  */
 public class Run {
     public static void main(String[]args){
-        try {
-            
-            new Tela().setVisible(true);
-            
-        } catch (ParseException ex) {
-            
-            Logger.getLogger(Run.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        //System.out.println("Hello World!");
+        new Dashboard().setVisible(true);
     }
 }

@@ -26,12 +26,12 @@ import table.LivroTableModel;
  */
 public class Tela extends javax.swing.JFrame {
     
-    Livro livro = new Livro();
+    /*Livro livro = new Livro();
     LivroDAO livroD = new LivroDAO();
     
     Cliente cliente = new Cliente();
     ClienteDAO clienteD = new ClienteDAO();
-
+*/
 
     /** Creates new form Tela */
     public Tela() throws ParseException {
@@ -669,9 +669,9 @@ public class Tela extends javax.swing.JFrame {
 
     private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
         // TODO add your handling code here:
-        if (jComboBox1.getSelectedIndex() == 0){
+       /* if (jComboBox1.getSelectedIndex() == 0){
             JOptionPane.showMessageDialog(null, "Selecione uma opção válida para o cadastro!", "Erro!", JOptionPane.WARNING_MESSAGE);
-        }
+        }*
         
         else if (jComboBox1.getSelectedIndex() == 1){
             
@@ -689,7 +689,7 @@ public class Tela extends javax.swing.JFrame {
         
         else{
             
-        }
+        }*/
     }//GEN-LAST:event_btSalvarActionPerformed
 
     private void tfLivroAnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfLivroAnoActionPerformed
