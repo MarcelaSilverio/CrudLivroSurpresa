@@ -16,7 +16,6 @@ import view.Tela;
  */
 public class Run {
     public static void main(String[]args){
-        //System.out.println("Hello World!");
         new Dashboard().setVisible(true);
     }
 }

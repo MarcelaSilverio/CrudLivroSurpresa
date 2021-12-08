@@ -32,12 +32,12 @@ public class LivroDAO {
         try{
             stmt = conexao.prepareStatement(sql);
             
-            stmt.setString(2, livro.getNome());
-            stmt.setInt(3, livro.getAno());
-            stmt.setString(4, livro.getEditora());
-            stmt.setString(5, livro.getAutor());
-            stmt.setInt(6, livro.getNum_paginas());
-            stmt.setString(7, livro.getGenero());
+            stmt.setString(1, livro.getNome());
+            stmt.setInt(2, livro.getAno());
+            stmt.setString(3, livro.getEditora());
+            stmt.setString(4, livro.getAutor());
+            stmt.setInt(5, livro.getNum_paginas());
+            stmt.setString(6, livro.getGenero());
             
             stmt.execute();
             stmt.close();
@@ -51,15 +51,16 @@ public class LivroDAO {
         String sql = "UPDATE livro SET nome = ?, ano = ?, editora = ?,"
                 + " autor = ?, num_paginas = ?, genero = ? WHERE id = ?";
         try{
+            stmt = conexao.prepareStatement(sql);
             
-            stmt.setString(2, livro.getNome());
-            stmt.setInt(3, livro.getAno());
-            stmt.setString(4, livro.getEditora());
-            stmt.setString(5, livro.getAutor());
-            stmt.setInt(6, livro.getNum_paginas());
-            stmt.setString(7, livro.getGenero());
+            stmt.setString(1, livro.getNome());
+            stmt.setInt(2, livro.getAno());
+            stmt.setString(3, livro.getEditora());
+            stmt.setString(4, livro.getAutor());
+            stmt.setInt(5, livro.getNum_paginas());
+            stmt.setString(6, livro.getGenero());
             
-            stmt.setInt(8, livro.getId());
+            stmt.setInt(7, livro.getId());
             
             stmt.execute();
             stmt.close();
