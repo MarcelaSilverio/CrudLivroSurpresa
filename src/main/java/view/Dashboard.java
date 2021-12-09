@@ -644,12 +644,36 @@ public class Dashboard extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void limpar(String campo){
+        if(campo == "cliente"){
+            clienteCpf.setText("");
+            clienteNome.setText("");
+            clienteCep.setText("");
+            clienteNumero.setText("");
+            clienteRua.setText("");
+            clienteCidade.setText("");
+            clienteUf.setText("");
+            clienteEmail.setText("");
+            clienteTelefone.setText("");
+        }
+        else if (campo == "livro"){
+            livroNome.setText("");
+            livroAno.setText("");
+            livroEditora.setText("");
+            livroAutor.setText("");
+            livroNumPaginas.setText("");
+            livroGenero.setSelectedIndex(0);
+        }
+    }
     private void livroEditoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_livroEditoraActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_livroEditoraActionPerformed
 
     private void btnInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInserirActionPerformed
         // TODO add your handling code here:
+        
+        boolean insereLivro = true;
+        
          if (escolhaTabela.getSelectedIndex() == 1){
 
             cliente.setCpf(clienteCpf.getText());
@@ -663,9 +687,13 @@ public class Dashboard extends javax.swing.JFrame {
             cliente.setTelefone(clienteTelefone.getText());
 
             clienteD.inserir(cliente);
+            
+            limpar("cliente");
+            
+            //tabelaCliente.setModel(new cliente)
                     
         } else if (escolhaTabela.getSelectedIndex() == 2) {
-            
+        
             livro.setNome(livroNome.getText());
             livro.setAno(Integer.parseInt(livroAno.getText()));
             livro.setEditora(livroEditora.getText());
@@ -680,9 +708,14 @@ public class Dashboard extends javax.swing.JFrame {
                 livro.setGenero("Ficção");
             } else{
                 JOptionPane.showMessageDialog(null, "Selecione um gênero válido!", "Erro!", JOptionPane.WARNING_MESSAGE);
+                insereLivro = false;
             }
             
-            livroD.inserir(livro);  
+            if(insereLivro){
+                livroD.inserir(livro);
+
+                limpar("livro");    
+            }
 
         } else {
             JOptionPane.showMessageDialog(null, "Selecione uma opção válida para o cadastro!", "Erro!", JOptionPane.WARNING_MESSAGE);
