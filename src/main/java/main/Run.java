@@ -4,18 +4,16 @@
  */
 package main;
 
-import java.text.ParseException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import view.Dashboard;
-import view.Tela;
 
 /**
  *
- * @author marcelapsilverio
+ * @author marcelapsilverio e tassylalima
  */
 public class Run {
+    
     public static void main(String[]args){
         new Dashboard().setVisible(true);
     }
+    
 }
