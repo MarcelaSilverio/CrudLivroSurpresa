@@ -7,6 +7,9 @@ package view;
 import dao.ClienteDAO;
 import dao.LivroDAO;
 import dao.RecebeDAO;
+import static java.lang.Math.random;
+import java.util.ArrayList;
+import java.util.Random;
 import javax.swing.JOptionPane;
 import model.Cliente;
 import model.Livro;
@@ -811,6 +814,24 @@ public class Dashboard extends javax.swing.JFrame {
 
     private void btnSorteioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSorteioActionPerformed
         // TODO add your handling code here:
+        ArrayList<Livro> livros = livroD.listarTodos();
+        ArrayList<Cliente> clientes = clienteD.listarTodos();
+        
+        Random ale = new Random();
+        
+        for(int cont = 0; cont < clientes.size(); cont++){
+            
+            int numero = ale.nextInt(livros.size());
+            
+            recebe.setR_cpf(clientes.get(cont).getCpf());
+            recebe.setR_id(livros.get(numero).getId());
+            
+            recebeD.inserir(recebe);
+            
+            tabelaSorteio.setModel(new RecebeTableModel(new RecebeDAO().listarTodos()));    
+            
+        }
+        
     }//GEN-LAST:event_btnSorteioActionPerformed
 
     private void clienteCidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clienteCidadeActionPerformed
