@@ -893,8 +893,13 @@ public class Dashboard extends javax.swing.JFrame {
             excluirId.setText("");
             tabelaLivro.setModel(new LivroTableModel(new LivroDAO().listarTodos()));
             
-        } else{
-            JOptionPane.showMessageDialog(null, "Selecione uma opção válida para excluir!", "Erro!", JOptionPane.WARNING_MESSAGE);
+        } else if (escolhaTabela.getSelectedIndex() == 3){
+            
+            recebeD.excluir();
+            tabelaSorteio.setModel(new RecebeTableModel(new RecebeDAO().listarTodos()));
+            
+        } else {
+             JOptionPane.showMessageDialog(null, "Selecione uma opção válida para excluir!", "Erro!", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_btnExcluirMouseClicked
 

@@ -44,7 +44,7 @@ public class RecebeDAO {
     
     
     public void excluir(){
-        String sql = "DELETE * FROM recebe";
+        String sql = "DELETE FROM recebe";
         try{
             st = conexao.createStatement();
             st.execute(sql);
@@ -61,8 +61,8 @@ public class RecebeDAO {
             rs = st.executeQuery(sql);
             while(rs.next()){
                 Recebe recebe = new Recebe();
-                recebe.setR_cpf(rs.getString("cpf"));
-                recebe.setR_id(rs.getInt("id"));
+                recebe.setR_cpf(rs.getString("r_cpf"));
+                recebe.setR_id(rs.getInt("r_id"));
                 
                 lista.add(recebe);
             }
