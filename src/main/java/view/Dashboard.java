@@ -37,7 +37,7 @@ public class Dashboard extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         tabelaCliente.setModel(new ClienteTableModel(new ClienteDAO().listarTodos()));
         tabelaLivro.setModel(new LivroTableModel(new LivroDAO().listarTodos()));
-        tabelaSorteio.setModel(new RecebeTableModel(new RecebeDAO().listarTodos()));
+        tabelaSorteio.setModel(new RecebeTableModel(new RecebeDAO().listarTodos()));    
     }
 
     /**
@@ -90,12 +90,16 @@ public class Dashboard extends javax.swing.JFrame {
         labelClienteUf = new javax.swing.JLabel();
         labelClienteCidade = new javax.swing.JLabel();
         livroGenero = new javax.swing.JComboBox<>();
-        clienteCpf = new javax.swing.JFormattedTextField();
+        excluirCpf = new javax.swing.JFormattedTextField();
         labelLivroNome = new javax.swing.JLabel();
         clienteTelefone = new javax.swing.JFormattedTextField();
         livroAno = new javax.swing.JTextField();
         clienteUf = new javax.swing.JFormattedTextField();
-        btnLimpar1 = new javax.swing.JButton();
+        labelLivro1 = new javax.swing.JLabel();
+        labelLivroNome2 = new javax.swing.JLabel();
+        excluirId = new javax.swing.JTextField();
+        labelLivroNome3 = new javax.swing.JLabel();
+        clienteCpf = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -378,20 +382,20 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
 
-        clienteCpf.setBackground(new java.awt.Color(210, 190, 179));
-        clienteCpf.setForeground(new java.awt.Color(36, 36, 36));
+        excluirCpf.setBackground(new java.awt.Color(210, 190, 179));
+        excluirCpf.setForeground(new java.awt.Color(36, 36, 36));
         try {
-            clienteCpf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+            excluirCpf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        clienteCpf.setText("");
-        clienteCpf.setCaretColor(new java.awt.Color(161, 95, 64));
-        clienteCpf.setFont(new java.awt.Font("Georgia", 0, 15)); // NOI18N
-        clienteCpf.setSelectionColor(new java.awt.Color(161, 95, 64));
-        clienteCpf.addActionListener(new java.awt.event.ActionListener() {
+        excluirCpf.setText("");
+        excluirCpf.setCaretColor(new java.awt.Color(161, 95, 64));
+        excluirCpf.setFont(new java.awt.Font("Georgia", 0, 15)); // NOI18N
+        excluirCpf.setSelectionColor(new java.awt.Color(161, 95, 64));
+        excluirCpf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                clienteCpfActionPerformed(evt);
+                excluirCpfActionPerformed(evt);
             }
         });
 
@@ -436,18 +440,33 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
 
-        btnLimpar1.setBackground(new java.awt.Color(145, 119, 102));
-        btnLimpar1.setFont(new java.awt.Font("Georgia", 0, 15)); // NOI18N
-        btnLimpar1.setForeground(new java.awt.Color(255, 255, 255));
-        btnLimpar1.setText("Alterar");
-        btnLimpar1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnLimpar1MouseClicked(evt);
-            }
-        });
-        btnLimpar1.addActionListener(new java.awt.event.ActionListener() {
+        labelLivro1.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
+        labelLivro1.setText("Excluir:");
+
+        labelLivroNome2.setFont(new java.awt.Font("Georgia", 0, 15)); // NOI18N
+        labelLivroNome2.setText("CPF");
+
+        excluirId.setBackground(new java.awt.Color(210, 190, 179));
+        excluirId.setFont(new java.awt.Font("Georgia", 0, 15)); // NOI18N
+        excluirId.setForeground(new java.awt.Color(36, 36, 36));
+
+        labelLivroNome3.setFont(new java.awt.Font("Georgia", 0, 15)); // NOI18N
+        labelLivroNome3.setText("ID");
+
+        clienteCpf.setBackground(new java.awt.Color(210, 190, 179));
+        clienteCpf.setForeground(new java.awt.Color(36, 36, 36));
+        try {
+            clienteCpf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        clienteCpf.setText("");
+        clienteCpf.setCaretColor(new java.awt.Color(161, 95, 64));
+        clienteCpf.setFont(new java.awt.Font("Georgia", 0, 15)); // NOI18N
+        clienteCpf.setSelectionColor(new java.awt.Color(161, 95, 64));
+        clienteCpf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLimpar1ActionPerformed(evt);
+                clienteCpfActionPerformed(evt);
             }
         });
 
@@ -479,15 +498,25 @@ public class Dashboard extends javax.swing.JFrame {
                                     .addComponent(clienteNumero)
                                     .addComponent(clienteRua)
                                     .addComponent(clienteEmail)
-                                    .addComponent(clienteCpf)
                                     .addComponent(clienteTelefone)
                                     .addComponent(clienteUf)
-                                    .addComponent(clienteCep, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(clienteCep, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(clienteCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(escolhaTabela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(16, 16, 16)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnSorteio, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnInserir, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(24, 24, 24)
+                                .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(76, 76, 76)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -512,21 +541,18 @@ public class Dashboard extends javax.swing.JFrame {
                                             .addGap(2, 2, 2))
                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(livroAno)
-                                            .addComponent(livroEditora, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnSorteio, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(livroEditora, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnLimpar1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnInserir, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(btnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
+                                .addComponent(labelLivroNome2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(excluirCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(labelLivro1, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(12, 12, 12)
+                                .addComponent(labelLivroNome3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(excluirId, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -542,7 +568,7 @@ public class Dashboard extends javax.swing.JFrame {
                         .addGap(84, 84, 84))))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addContainerGap(920, Short.MAX_VALUE)
+                    .addContainerGap(935, Short.MAX_VALUE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                             .addComponent(jLabel17)
@@ -620,37 +646,50 @@ public class Dashboard extends javax.swing.JFrame {
                                     .addComponent(labeLivroGenero)
                                     .addComponent(livroGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(scrollLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(clienteEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(labelClienteEmail)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(12, 12, 12)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(clienteEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(labelClienteEmail)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(2, 2, 2)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(44, 44, 44)
+                                .addComponent(scrollSorteio, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(91, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(15, 15, 15)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(clienteTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(labelClienteTelefone))
+                                .addGap(27, 27, 27)
+                                .addComponent(escolhaTabela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(2, 2, 2)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(clienteTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(labelClienteTelefone))
-                        .addGap(27, 27, 27)
-                        .addComponent(escolhaTabela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addComponent(scrollSorteio, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnInserir)
+                        .addComponent(labelLivro1)
                         .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labelLivroNome2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(excluirCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(excluirId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelLivroNome3, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnLimpar)
                             .addComponent(btnExcluir)
-                            .addComponent(btnLimpar1))
+                            .addComponent(btnInserir))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnSorteio)))
-                .addContainerGap(65, Short.MAX_VALUE))
+                        .addComponent(btnSorteio)
+                        .addGap(40, 40, 40))))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -660,7 +699,7 @@ public class Dashboard extends javax.swing.JFrame {
                         .addGroup(layout.createSequentialGroup()
                             .addGap(26, 26, 26)
                             .addComponent(jLabel15)))
-                    .addContainerGap(358, Short.MAX_VALUE)))
+                    .addContainerGap(391, Short.MAX_VALUE)))
         );
 
         pack();
@@ -786,9 +825,9 @@ public class Dashboard extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_livroGeneroActionPerformed
 
-    private void clienteCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clienteCpfActionPerformed
+    private void excluirCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_excluirCpfActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_clienteCpfActionPerformed
+    }//GEN-LAST:event_excluirCpfActionPerformed
 
     private void clienteTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clienteTelefoneActionPerformed
         // TODO add your handling code here:
@@ -801,14 +840,6 @@ public class Dashboard extends javax.swing.JFrame {
     private void clienteUfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clienteUfActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_clienteUfActionPerformed
-
-    private void btnLimpar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLimpar1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnLimpar1MouseClicked
-
-    private void btnLimpar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpar1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnLimpar1ActionPerformed
 
     private void tabelaClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaClienteMouseClicked
         // TODO add your handling code here:
@@ -830,14 +861,16 @@ public class Dashboard extends javax.swing.JFrame {
         
         if (escolhaTabela.getSelectedIndex() == 1){
             
-            String cpf = clienteCpf.getText();
+            String cpf = excluirCpf.getText();
             clienteD.excluir(cpf);
-            limpar("cliente");
+            excluirCpf.setText("");
+            tabelaCliente.setModel(new ClienteTableModel(new ClienteDAO().listarTodos()));
             
         } else if (escolhaTabela.getSelectedIndex() == 2) {
-            int id = Integer.parseInt(tabelaLivro.getValueAt(tabelaLivro.getSelectedRow(), LivroTableModel.COL_ID_LIVRO).toString());
+            int id = Integer.parseInt(excluirId.getText());
             livroD.excluir(id);
-            limpar("livro");
+            excluirId.setText("");
+            tabelaLivro.setModel(new LivroTableModel(new LivroDAO().listarTodos()));
             
         } else{
             JOptionPane.showMessageDialog(null, "Selecione uma opção válida para excluir!", "Erro!", JOptionPane.WARNING_MESSAGE);
@@ -866,6 +899,10 @@ public class Dashboard extends javax.swing.JFrame {
     private void btnInserirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInserirMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_btnInserirMouseClicked
+
+    private void clienteCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clienteCpfActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_clienteCpfActionPerformed
 
     /**
      * @param args the command line arguments
@@ -906,7 +943,6 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JButton btnExcluir;
     private javax.swing.JButton btnInserir;
     private javax.swing.JButton btnLimpar;
-    private javax.swing.JButton btnLimpar1;
     private javax.swing.JButton btnSorteio;
     private javax.swing.JFormattedTextField clienteCep;
     private javax.swing.JTextField clienteCidade;
@@ -918,6 +954,8 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField clienteTelefone;
     private javax.swing.JFormattedTextField clienteUf;
     private javax.swing.JComboBox<String> escolhaTabela;
+    private javax.swing.JFormattedTextField excluirCpf;
+    private javax.swing.JTextField excluirId;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel21;
@@ -933,10 +971,13 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel labelClienteTelefone;
     private javax.swing.JLabel labelClienteUf;
     private javax.swing.JLabel labelLivro;
+    private javax.swing.JLabel labelLivro1;
     private javax.swing.JLabel labelLivroAno;
     private javax.swing.JLabel labelLivroAutor;
     private javax.swing.JLabel labelLivroEditora;
     private javax.swing.JLabel labelLivroNome;
+    private javax.swing.JLabel labelLivroNome2;
+    private javax.swing.JLabel labelLivroNome3;
     private javax.swing.JLabel labelLivroNumPaginas;
     private javax.swing.JTextField livroAno;
     private javax.swing.JTextField livroAutor;

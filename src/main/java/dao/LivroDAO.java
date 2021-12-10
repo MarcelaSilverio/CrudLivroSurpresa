@@ -88,12 +88,15 @@ public class LivroDAO {
             rs = st.executeQuery(sql);
             while(rs.next()){
                 Livro livro = new Livro();
+                livro.setId(rs.getInt("id"));
                 livro.setNome(rs.getString("nome"));
                 livro.setAno(rs.getInt("ano"));
                 livro.setEditora(rs.getString("editora"));
                 livro.setAutor(rs.getString("autor"));
                 livro.setNum_paginas(rs.getInt("num_paginas"));
                 livro.setGenero(rs.getString("genero"));
+                
+                lista.add(livro);
   
             }
         }catch(Exception erro){

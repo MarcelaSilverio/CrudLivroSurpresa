@@ -63,6 +63,8 @@ public class RecebeDAO {
                 Recebe recebe = new Recebe();
                 recebe.setR_cpf(rs.getString("cpf"));
                 recebe.setR_id(rs.getInt("id"));
+                
+                lista.add(recebe);
             }
         }catch(Exception erro){
             throw new RuntimeException("Erro 5: " + erro + "\n");

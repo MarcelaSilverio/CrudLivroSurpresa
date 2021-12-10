@@ -79,7 +79,7 @@ public class ClienteDAO {
     }
     
     public void excluir(String cpf){
-        String sql = "DELETE FROM cliente WHERE cpf = " + cpf;
+        String sql = "DELETE FROM cliente WHERE cpf = '" + cpf + "'";
         try{
             st = conexao.createStatement();
             st.execute(sql);
@@ -106,6 +106,9 @@ public class ClienteDAO {
                 cliente.setUf(rs.getString("uf"));
                 cliente.setEmail(rs.getString("email"));
                 cliente.setTelefone(rs.getString("telefone"));
+                
+                lista.add(cliente);
+                
             }
         }catch(Exception erro){
             throw new RuntimeException("Erro 5: " + erro + "\n");
