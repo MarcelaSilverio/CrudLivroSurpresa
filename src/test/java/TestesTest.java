@@ -58,9 +58,17 @@ public class TestesTest {
     public void tearDown() {
     }
 
-
     @Test
     @Order(1)
+    public void conexaoTest() {
+        Connection conexao;
+        conexao = new ConnectionFactory().getConnection();
+
+        assertNotNull(conexao);
+    }
+
+    @Test
+    @Order(2)
     public void addClienteTest(){
 
         ClienteDAO clienteTesteDAO = new ClienteDAO();
@@ -105,7 +113,7 @@ public class TestesTest {
 
 
     @Test
-    @Order(2)
+    @Order(3)
     public void addLivroTest(){
 
         LivroDAO livroDAOTeste = new LivroDAO();
@@ -141,8 +149,53 @@ public class TestesTest {
 
     }
 
+        @Test
+    @Order(4)
+    public void listarDadosTest() {
+        ArrayList<Livro> listaLivros = livroDAOTeste.listarTodos();
+        ArrayList<Cliente> listaClientes = clienteTesteDAO.listarTodos();
+
+        assertNotNull(listaLivros);
+        assertNotNull(listaClientes);
+    }
+
     @Test
-    @Order(3)
+    @Order(5)
+    public void alteraDadosTest(){
+
+        ClienteDAO clienteTeste = new ClienteDAO();
+        LivroDAO livroTeste = new LivroDAO();
+
+        String[] dadosNovosCliente = {"Jude Duarte","judeduarte@gmail.com","(31)99928-2001","111.111.789-11","30890-080","Elfhame","SE","Madoc's Place","12"};
+        String[] dadosNovosLivro = {"Príncipe Cruel", "2018", "Galera", "Holly Black", "320", "Romance"};
+
+        Cliente novoCliente = new Cliente();
+        Livro novoLivro = new Livro();
+
+        novoCliente.setNome(dadosNovosCliente[0]);
+        novoCliente.setEmail(dadosNovosCliente[1]);
+        novoCliente.setTelefone(dadosNovosCliente[2]);
+        novoCliente.setCpf(dadosNovosCliente[3]);
+        novoCliente.setCep(dadosNovosCliente[4]);
+        novoCliente.setCidade(dadosNovosCliente[5]);
+        novoCliente.setUf(dadosNovosCliente[6]);
+        novoCliente.setRua(dadosNovosCliente[7]);
+        novoCliente.setNumero(Integer.parseInt(dadosNovosCliente[8]));
+
+        novoLivro.setNome(dadosNovosLivro[0]);
+        novoLivro.setAno(Integer.parseInt(dadosNovosLivro[1]));
+        novoLivro.setEditora(dadosNovosLivro[2]);
+        novoLivro.setAutor(dadosNovosLivro[3]);
+        novoLivro.setNum_paginas(Integer.parseInt(dadosNovosLivro[4]));
+        novoLivro.setGenero(dadosNovosLivro[5]);
+
+        clienteTeste.alterar(novoCliente);
+        livroTeste.alterar(novoLivro);
+    }
+
+
+    @Test
+    @Order(6)
     public void deletaItens(){
 
         LivroDAO delecaoLivros = new LivroDAO();
